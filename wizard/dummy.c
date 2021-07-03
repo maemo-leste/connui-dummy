@@ -36,8 +36,8 @@ typedef struct dummy_plugin_private_t dummy_plugin_private;
 
 static void iap_wizard_dummy_advanced_show(gpointer user_data, struct stage *s)
 {
-    // Can set up / fetch defaults here if the mappers are not adequate, focus
-    // certain fields, etc
+	// Can set up / fetch defaults here if the mappers are not adequate, focus
+	// certain fields, etc
 	return;
 }
 
@@ -113,8 +113,8 @@ static GtkWidget *dummy_start_create(gpointer user_data)
 
 static struct iap_wizard_page iap_wizard_dummy_pages[] = {
 	{
-	 "DUMMY_START", /* widget name */
-	 "conn_set_iap_ti_dummycreate", /* translation string */
+	 "DUMMY_START",		/* widget name */
+	 "conn_set_iap_ti_dummycreate",	/* translation string */
 	 dummy_start_create,	/* page creation func */
 	 NULL,			/* next clicked func ? */
 	 NULL,			/* finish func */
@@ -127,13 +127,23 @@ static struct iap_wizard_page iap_wizard_dummy_pages[] = {
 
 static struct iap_advanced_widget ti_adv_misc_advanced_widgets[] = {
 	{
-	 NULL,			/* function to test whether to show */
-	 "DUMMY_COMBO",		/* name of widget */
+     /* Function to test whether to show */
 	 NULL,
+     /* Name of widget */
+	 "DUMMY_COMBO",
+	 /* Enabled when a widget with this name is true.
+	  * See connui-internet/src/settings/advanced.c,
+	  * iap_advanced_wizard_proxies_widgets */
 	 NULL,
-	 "conn_set_iap_fi_adv_dummy_type",	/* title in localisation */
+	 /* Disabled explicitly when a widget with this name is false */
+	 NULL,
+     /* Title in localisation */
+	 "conn_set_iap_fi_adv_dummy_type",
+     /* Create function */
 	 dummy_combo_create,
-	 0},
+     /* If this is a meta checkbox, or perhaps if its state can affect others? */
+	 FALSE,
+    },
 	{NULL, NULL, NULL, NULL, NULL, NULL, 0}
 };
 
@@ -220,7 +230,6 @@ static struct iap_advanced_page *iap_wizard_dummy_get_advanced(gpointer
 
 	return rv;
 }
-
 
 static const char *iap_wizard_dummy_get_page(gpointer user_data, int index,
 					     gboolean show_note)
