@@ -1,0 +1,3 @@
+SUBDIRS = wizard
+
+MAINTAINERCLEANFILES = Makefile.in

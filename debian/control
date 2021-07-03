@@ -1,0 +1,15 @@
+Source: connui-dummy
+Section: x11
+Priority: optional
+Maintainer: Merlijn Wajer <merlijn@wizzup.org>
+Build-Depends: debhelper (>= 10), cdbs, libdbus-1-dev, libhildon1-dev,
+ libconnui-dev, libconbtui0-dev, connui-iapsettings-dev,
+ osso-af-settings, libosso-dev, icd2-dev, icd2-osso-ic-dev
+
+Package: connui-iapsettings-dummy
+Architecture: any
+Section: x11
+Depends: ${shlibs:Depends}, osso-connectivity-ui-l10n-mr | osso-connectivity-ui-l10n-mr0
+Description: Internet Settings UI for dummy connections
+ This package provides the Internet Settings UI plugin that allows you to
+ create, edit and delete DUMMY Internet Access Point configurations.
